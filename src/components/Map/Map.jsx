@@ -108,7 +108,9 @@ export default function Map({ cep }) {
 
     return (
         <div className="main">
+
             <div id="map" className="map-container"></div>
+            
         </div>
     );
 }

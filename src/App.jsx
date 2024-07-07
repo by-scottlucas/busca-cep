@@ -74,19 +74,19 @@ export default function App() {
 
           <div className='result-info'>
 
-            <span>
+            <span className='box-info'>
               <p className='label'>Logradouro</p>
-              {cep.logradouro}
+              <p className='sub-label'>{cep.logradouro}</p>
             </span>
 
-            <span>
+            <span className='box-info'>
               <p className='label'>Bairro</p>
-              {cep.bairro}
+              <p className='sub-label'>{cep.bairro}</p>
             </span>
 
-            <span>
+            <span className='box-info'>
               <p className='label'>Localidade/UF</p>
-              {cep.localidade}/{cep.uf}
+              <p className='sub-label'>{cep.localidade}/{cep.uf}</p>
             </span>
 
             {Object.keys(cep.complemento).length > 0 ? (
