@@ -1,0 +1,8 @@
+#map {
+    height: 280px;
+}
+
+.custom-marker {
+    filter: hue-rotate(145deg);
+    /* Altere o valor para mudar a cor */
+}

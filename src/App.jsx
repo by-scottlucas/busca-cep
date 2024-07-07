@@ -5,6 +5,7 @@ import { FiSearch } from 'react-icons/fi';
 
 import logotipo from './assets/logo.png';
 import cepService from './services/cep.service';
+import Map from './components/Map/Map';
 
 
 export default function App() {
@@ -55,11 +56,8 @@ export default function App() {
 
       <section className="input-box">
 
-        <input
-          type="text"
-          placeholder="Digite o CEP..."
-          value={input}
-          onChange={handleInputChange}
+        <input type="text" placeholder="Digite o CEP..."
+          value={input} onChange={handleInputChange}
         />
 
         <button className="search-btn" onClick={handleSearch}>
@@ -102,7 +100,10 @@ export default function App() {
 
           </div>
 
+          <Map cep={cep.cep} />
+
         </section>
+
 
       )}
 
