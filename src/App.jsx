@@ -70,7 +70,7 @@ export default function App() {
 
         <section className='result-box'>
 
-          <h2>{cep.cep}</h2>
+          <h2 className="result-cep">{cep.cep}</h2>
 
           <div className='result-info'>
 
