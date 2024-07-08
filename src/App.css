@@ -44,6 +44,10 @@
   background-color: transparent;
 }
 
+.icon-search {
+  font-size: 1.5rem;
+}
+
 .search-btn {
   right: 10px;
   border: 0;
@@ -107,7 +111,47 @@
   text-transform: capitalize;
 }
 
-@media (max-width: 800px) {
+
+/* ********** MEDIA QUERIES ********** */
+
+/* TABLETS */
+
+@media screen and (min-width: 768px) {
+
+  .logo {
+    width: 380px;
+    margin-bottom: 30px;
+  }
+
+  .input-box input {
+    padding: 10px;
+    font-size: 1.8rem;
+  }
+
+  .icon-search {
+    font-size: 3rem;
+  }
+
+  .result-cep {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+  }
+
+  .label {
+    font-size: 1.2rem;
+  }
+
+  .sub-label {
+    font-size: 1.5rem;
+  }
+
+  .box-info {
+    margin-bottom: 30px;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
 
   .infos {
     margin: 0 auto;

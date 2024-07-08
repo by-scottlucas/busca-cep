@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 export default function Map({ cep }) {
 
     useEffect(() => {
-        
+
         const map = L.map('map').setView([-24.0058, -46.4025], 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -37,25 +37,20 @@ export default function Map({ cep }) {
             fetch(viaCepUrl)
                 .then(response => response.json())
                 .then(data => {
-
                     console.log('Resposta do ViaCEP:', data); // Verifica a resposta no console
 
                     if (!data.erro) {
-
                         const endereco = `355 ${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`;
                         buscarCoordenadasPorEndereco(endereco);
-
                     } else {
                         alert('CEP não encontrado.');
                     }
-
                 })
                 .catch(error => {
                     console.error('Erro ao buscar endereço pelo CEP:', error);
                     console.log('Ocorreu um erro ao buscar o endereço.');
                 });
         }
-
 
         // Função para buscar coordenadas a partir de um endereço usando a API Nominatim do OpenStreetMap
         function buscarCoordenadasPorEndereco(endereco) {
@@ -104,13 +99,12 @@ export default function Map({ cep }) {
         return () => {
             map.remove();
         };
+        
     }, [cep]); // Executar o efeito apenas quando `cep` mudar
 
     return (
         <div className="main">
-
             <div id="map" className="map-container"></div>
-            
         </div>
     );
 }

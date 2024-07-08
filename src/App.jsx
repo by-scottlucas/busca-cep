@@ -61,7 +61,7 @@ export default function App() {
         />
 
         <button className="search-btn" onClick={handleSearch}>
-          <FiSearch size={25} />
+          <FiSearch className='icon-search' />
         </button>
 
       </section>
