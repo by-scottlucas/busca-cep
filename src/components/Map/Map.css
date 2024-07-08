@@ -12,6 +12,10 @@
     padding: 0px;
 }
 
+/* ********** MEDIA QUERIES ********** */
+
+/* TABLETS */
+
 @media screen and (min-width: 768px) {
 
     #map {
@@ -26,6 +30,27 @@
     .leaflet-control-zoom-in span,
     .leaflet-control-zoom-out span {
         font-size: 2rem;
+    }
+
+}
+
+
+/* DESKTOPS */
+
+@media screen and (min-width: 1024px) {
+
+    #map {
+        height: 250px;
+    }
+
+    .leaflet-control-zoom-in,
+    .leaflet-control-zoom-out {
+        padding: 4px;
+    }
+
+    .leaflet-control-zoom-in span,
+    .leaflet-control-zoom-out span {
+        font-size: 1.6rem;
     }
 
 }

@@ -151,12 +151,52 @@
 
 }
 
+
+/* DESKTOPS */
+
 @media screen and (min-width: 1024px) {
 
-  .infos {
-    margin: 0 auto;
+  .logo {
+    width: 300px;
+  }
+
+  .input-box {
+    width: 70%;
+  }
+
+  .input-box input {
+    padding: 4px;
+    font-size: 1.4rem;
+  }
+
+  .icon-search {
+    font-size: 2.2rem;
+  }
+
+  .result-box {
+    width: 70%;
+  }
+
+  .result-cep {
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+  }
+
+  .label {
+    text-align: start;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .sub-label {
+    font-size: 1.3rem;
+  }
+
+  .result-info {
+    width: 90%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
 }
