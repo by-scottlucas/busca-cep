@@ -161,7 +161,7 @@
   }
 
   .input-box {
-    width: 70%;
+    width: 55%;
   }
 
   .input-box input {
@@ -174,7 +174,7 @@
   }
 
   .result-box {
-    width: 70%;
+    width: 55%;
   }
 
   .result-cep {
@@ -189,7 +189,7 @@
   }
 
   .sub-label {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .result-info {
