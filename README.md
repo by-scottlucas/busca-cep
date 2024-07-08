@@ -38,3 +38,8 @@ Este projeto está licenciado sob a [Licença MIT](./LICENSE).
 Você pode acessar a aplicação através do seguinte link:
 
 https://by-scottlucas.github.io/react-busca-cep/
+
+
+## Imagem do Projeto
+
+![Imagem do Projeto](./src/assets/thumb.png)
