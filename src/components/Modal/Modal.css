@@ -26,22 +26,69 @@
     justify-content: center;
 }
 
-.modal h3 {
-    text-align: center;
+.modal-box h3 {
     margin-top: 0;
 }
 
 .modal-box button {
-    margin-top: 20px;
+    margin-top: 15px;
     cursor: pointer;
     color: #FFF;
     border: none;
     height: 45px;
-    width: 100%;
+    width: 60%;
     border-radius: 2px;
-    background-color: #007bff;
+    background-color: #ff0000;
 }
 
 .modal-box button:hover {
-    background-color: #0056b3;
+    background-color: #b30000;
+}
+
+/* ********** MEDIA QUERIES ********** */
+
+/* TABLETS */
+
+@media screen and (min-width:768px) {
+
+    .modal-box {
+        height: 240px;
+    }
+
+    .modal-box h3 {
+        font-size: 2rem;
+    }
+
+    .modal-box button {
+        width: 50%;
+        height: 64px;
+        font-size: 1.4rem;
+        margin-top: 24px;
+    }
+
+}
+
+
+/* DESKTOPS */
+
+@media screen and (min-width:1024px) {
+
+    .modal-box {
+        width: 30%;
+        padding: 20px;
+        height: max-content;
+        /* height: 240px; */
+    }
+
+    .modal-box h3 {
+        font-size: 1.4rem;
+    }
+
+    .modal-box button {
+        width: 50%;
+        height: 44px;
+        font-size: 1.2rem;
+        margin-top: 20px;
+    }
+
 }

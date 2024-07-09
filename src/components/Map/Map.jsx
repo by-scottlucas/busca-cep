@@ -1,10 +1,17 @@
 import './Map.css';
 import 'leaflet/dist/leaflet.css';
+
 import L from 'leaflet';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Modal from '../Modal/Modal';
 
 export default function Map({ cep }) {
+
+  const [modalMessage, setModalMessage] = useState('');
+  const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
+
     const map = L.map('map').setView([-24.0058, -46.4025], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -24,45 +31,58 @@ export default function Map({ cep }) {
     let marker = null;
 
     function buscarEnderecoPorCEP() {
+
       const viaCepUrl = `https://viacep.com.br/ws/${cep}/json/`;
       console.log('URL do ViaCEP:', viaCepUrl);
 
       fetch(viaCepUrl)
         .then(response => response.json())
         .then(data => {
+
           console.log('Resposta do ViaCEP:', data);
+
           if (!data.erro) {
             const endereco = `${data.logradouro}, ${data.bairro}, ${data.localidade} - ${data.uf}`;
             buscarCoordenadasPorEndereco(endereco);
           } else {
-            alert('CEP não encontrado.');
+            setModalMessage('CEP não encontrado.');
+            setShowModal(true);
           }
+
         })
         .catch(error => {
           console.error('Erro ao buscar endereço pelo CEP:', error);
-          console.log('Ocorreu um erro ao buscar o endereço.');
+          setModalMessage('Ocorreu um erro ao buscar o endereço.');
+          setShowModal(true);
         });
     }
 
     function buscarCoordenadasPorEndereco(endereco) {
-      var apiUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(endereco)}`;
+
+      const apiUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(endereco)}`;
+
       fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
+
           if (data.length > 0) {
-            var coordenadas = {
+
+            const coordenadas = {
               latitude: parseFloat(data[0].lat),
               longitude: parseFloat(data[0].lon)
             };
+
             adicionarMarcador(coordenadas);
             centralizarMapa(coordenadas.latitude, coordenadas.longitude);
+
           } else {
-            console.log('Endereço não encontrado.');
+            setModalMessage('Endereço não encontrado.');
+            setShowModal(true);
           }
         })
         .catch(error => {
           console.error('Erro ao buscar coordenadas:', error);
-          console.log('Ocorreu um erro ao buscar as coordenadas. Verifique a conexão ou tente novamente mais tarde.');
+          setModalMessage('Ocorreu um erro ao buscar as coordenadas.');
         });
     }
 
@@ -84,11 +104,33 @@ export default function Map({ cep }) {
     return () => {
       map.remove();
     };
+
   }, [cep]);
 
+  function closeModal() {
+    setShowModal(false);
+    setModalMessage('');
+
+  }
+
   return (
+
     <div className="main">
+
       <div id="map" className="map-container"></div>
+
+
+      <Modal show={showModal}>
+
+        <h3>{modalMessage}</h3>
+
+        <button onClick={closeModal}>OK</button>
+
+      </Modal>
+
     </div>
+
+
+
   );
 }
